@@ -1,0 +1,115 @@
+$grid-col-count-xs: 4;
+$grid-col-count-sm: 8;
+$grid-col-count-md: 12;
+$grid-col-count-lg: 12;
+
+$grid-gutter-xs: 8px;
+$grid-gutter-sm: 12px;
+$grid-gutter-md: 16px;
+$grid-gutter-lg: 20px;
+
+$grid-padding-xs: 20px;
+$grid-padding-sm: 46px;
+$grid-padding-md: 68px;
+$grid-padding-lg: 80px;
+$grid-padding-xl: calc(50vw - 750px);
+
+@mixin grid-generate-columns($grid-col-count, $postfix) {
+  @for $i from 0 through $grid-col-count {
+    .col_#{$postfix}__#{$i} {
+      width: $i * (100% / $grid-col-count);
+      max-width: $i * (100% / $grid-col-count);
+      flex-basis: $i * (100% / $grid-col-count);
+    }
+
+    .offset_#{$postfix}__#{$i} {
+      margin-left: $i * (100% / $grid-col-count);
+    }
+  }
+  .col_#{$postfix}__oneThird {
+    width: percentage(1/3);
+    max-width: percentage(1/3);
+    flex-basis: percentage(1/3);
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 $grid-padding-xs;
+  width: 100%;
+
+  @include sm() {
+    padding: 0 $grid-padding-sm;
+  }
+
+  @include md() {
+    padding: 0 $grid-padding-md;
+  }
+
+  @include lg() {
+    padding: 0 $grid-padding-lg;
+  }
+
+  @include xxl() {
+    $xxl-padding: calc(50vw - 750px);
+    padding: 0 $xxl-padding;
+  }
+}
+
+.grid {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+
+  &.centered {
+    justify-content: center;
+  }
+
+  &.rightAligned {
+    justify-content: flex-end;
+  }
+
+  &.justified {
+    justify-content: space-between;
+  }
+
+  &.noFlex {
+    width: 100%;
+    display: block;
+  }
+}
+
+[class^='col'] {
+  width: 100%;
+  flex-basis: 100%;
+  padding: 0 $grid-gutter-xs / 2;
+  margin: 0;
+  box-sizing: border-box;
+
+  @include sm() {
+    padding: 0 $grid-gutter-sm / 2;
+  }
+
+  @include md() {
+    padding: 0 $grid-gutter-md / 2;
+  }
+
+  @include lg() {
+    padding: 0 $grid-gutter-lg / 2;
+  }
+}
+
+@include grid-generate-columns($grid-col-count-xs, 'xs');
+
+@include sm() {
+  @include grid-generate-columns($grid-col-count-sm, 'sm');
+}
+
+@include md() {
+  @include grid-generate-columns($grid-col-count-md, 'md');
+}
+
+@include lg() {
+  @include grid-generate-columns($grid-col-count-lg, 'lg');
+}

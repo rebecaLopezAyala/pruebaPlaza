@@ -1,0 +1,9 @@
+.DS_STORE
+node_modules
+release
+.module-cache
+*.log*
+_nogit
+.idea/
+.vscode/launch.json
+config/config.js

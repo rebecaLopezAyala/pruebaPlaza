@@ -1,0 +1,186 @@
+@import "breakpoints";
+
+$padding-xs: 20px;
+$padding-sm: 46px;
+$padding-md: 68px;
+$padding-lg: 80px;
+
+
+$focusOutlineColor: #81BCFA;
+
+html {
+  &.hasTabbed {
+    button {
+      &:focus {
+        outline: auto 5px $focusOutlineColor;
+      }
+    }
+  }
+}
+
+html, body {
+  &.noScrollable {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+  }
+}
+
+%side-padding, .side-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include sm() {
+    padding-left: $padding-sm;
+    padding-right: $padding-sm;
+  }
+
+  @include md() {
+    padding-left: $padding-md;
+    padding-right: $padding-md;
+  }
+
+  @include lg() {
+    padding-left: $padding-lg;
+    padding-right: $padding-lg;
+  }
+
+  @include xxl() {
+    $xxl-padding: calc(50vw - 750px);
+    padding-left: $xxl-padding;
+    padding-right: $xxl-padding;
+  }
+}
+
+/**
+* Loader
+*/
+.loading-bg {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: auto;
+  margin-top: 40px;
+}
+
+.loading-bg.white {
+  background: white;
+  margin-left: -100px;
+}
+
+.loading-bg.black {
+  background: black;
+  margin-top: -100px;
+}
+
+/***
+ * Loading indicator
+*/
+.loading-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  margin-left: -50px;
+  margin-top: -5px;
+  z-index: 9998;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+
+.loading-icon span {
+  border-radius: 50%;
+  background-color: #dadada;
+  display: inline-block;
+  content: "•";
+  text-indent: -9999px;
+  font-size: 0;
+  height: 12px;
+  width: 12px;
+  margin: 0 2px;
+  transform: scale3d(.6, .6, 1);
+  opacity: .6;
+}
+
+.loading-icon.white span {
+  background: white;
+}
+
+
+/**
+ * Animation
+ */
+.loading-icon span.first,
+.loading-icon span.second,
+.loading-icon span.third{
+  animation: expandingDotWithRed 1000ms ease-in-out infinite;
+}
+
+.loading-icon.white span.first,
+.loading-icon.white span.second,
+.loading-icon.white span.third{
+  animation: expandingDotDefault 1000ms ease-in-out infinite;
+}
+
+.loading-icon span.second,
+.loading-icon.white span.second {
+  animation-delay: 200ms;
+}
+
+.loading-icon span.third,
+.loading-icon.white span.third {
+  animation-delay: 400ms;
+}
+
+@keyframes expandingDotDefault {
+  0% {
+    opacity: .6;
+    transform: scale3d(.6, .6, 1);
+  }
+  20% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  40% {
+    opacity: .6;
+    transform: scale3d(.6, .6, 1);
+  }
+}
+
+@keyframes expandingDotWithRed {
+  0% {
+    opacity: .6;
+    transform: scale3d(.6, .6, 1);
+    background-color: #dadada;
+  }
+  20% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+    background-color: red;
+  }
+  40% {
+    opacity: .6;
+    transform: scale3d(.6, .6, 1);
+    background-color: #dadada;
+  }
+}
+
+// this class helps calculate font width in donate miles choose an amount input
+// so we can have moving placeholder next to our text
+.textCalculateClass {
+  position: absolute;
+  visibility: hidden;
+  height: auto;
+  width: auto;
+  white-space: nowrap;
+  font-family: 'RealHeadPro';
+  font-size: 21px;
+  font-weight: 800;
+
+  @include sm {
+    font-size: 38px;
+    letter-spacing: -0.4px;
+  }
+}

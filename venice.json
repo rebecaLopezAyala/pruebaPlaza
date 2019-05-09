@@ -1,0 +1,38 @@
+
+{
+  "description": {
+    "project": "lifemiles-web-app",
+    "type": "smart"
+  },
+  "build": {
+    "steps": [
+      "builder"
+    ],
+    "artifacts": {
+      "path": "release/"
+    },
+    "versioning": {
+      "type": "npm"
+    },
+    "branches": {
+      "dev": {
+        "version": "1.0.0"
+      },
+      "qa": {
+        "version": "1.0.0"
+      }
+    }
+  },
+  "deploy": {
+    "service": "server",
+    "environments": {
+      "dev": "auto",
+      "qa": "manual",
+      "preview": "manual"
+    }
+  },
+  "reporter": {
+    "type": "slack",
+    "channel": "lifemiles-dev"
+  }
+}
