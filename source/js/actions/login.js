@@ -1,14 +1,15 @@
 import loginTransformer from 'transformers/login';
+import api from 'api/login';
 
-export const GET_LOGIN_TRANSFORMER_ACTION_START = 'GET_LOGIN_TRANSFORMER_ACTION_START';
-export const GET_LOGIN_TRANSFORMER_ACTION_ERROR = 'GET_LOGIN_TRANSFORMER_ACTION_ERROR';
-export const GET_LOGIN_TRANSFORMER_ACTION_SUCCESS = 'GET_LOGIN_TRANSFORMER_ACTION_SUCCESS';
+export const GET_LOGIN_ACTION_START = 'GET_LOGIN_ACTION_START';
+export const GET_LOGIN_ACTION_ERROR = 'GET_LOGIN_ACTION_ERROR';
+export const GET_LOGIN_ACTION_SUCCESS = 'GET_LOGIN_ACTION_SUCCESS';
 
 export const TRANSFORMATION_ERROR = {
   message: 'Data transformation failed - data does not conform to validators.',
 };
 
-function getLoginAsync() {
+function getLoginAsyncStart() {
   return {
     type: GET_LOGIN_ACTION_START,
   };
@@ -30,7 +31,7 @@ function getLoginActionSuccess(data) {
 
 export function getLoginAsync() {
   return function (dispatch) {
-    dispatch(getLoginAsync());
+    dispatch(getLoginAsyncStart());
     api.getLoginAsync()
     .then(response => {
       const statusReq = response.status;
@@ -47,3 +48,4 @@ export function getLoginAsync() {
       .catch(error => dispatch(getLoginActionError(error)));
   };
 }
+            

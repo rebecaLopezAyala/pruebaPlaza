@@ -14,11 +14,9 @@ const isProduction = nodeEnv === 'production';
 
 const jsSourcePath = path.join(__dirname, './source/js');
 const buildPath = path.join(__dirname, './dist');
-const imgPath = path.join(__dirname, './public/images/');
 const fontsPath = path.join(__dirname, './public/fonts/');
 const sourcePath = path.join(__dirname, './source');
 const stylesPath = path.join(__dirname, './source/scss');
-const jsResourcePath = path.join(__dirname, './resources/js')
 
 //const configFile = require('./config/config.js');
 
@@ -98,16 +96,6 @@ const rules = [
     use: 'url-loader?limit=20480&name=public/fonts/[name]-[hash].[ext]',
   },
   {
-    test: /\.(svg)$/,
-    include: iconPath,
-    use: 'url-loader?limit=20480&name=assets/[name]-[hash].[ext]',
-  },
-  {
-    test: /\.(png|gif|jpg|svg)$/,
-    include: imgPath,
-    use: 'url-loader?limit=20480&name=public/images/[name]-[hash].[ext]',
-  },
-  {
     test: /\.scss$/,
     /*include: [
         path.join(__dirname, '/source/scss/')
@@ -157,14 +145,7 @@ if (isProduction) {
       },
       sourceMap: false,
     }),
-    new ExtractTextPlugin('style-[hash].css'),    
-    new CopyWebpackPlugin([
-      {
-        from: jsResourcePath,
-        to: path.join(buildPath, 'resources/js'),
-        toType: 'dir'
-      }
-    ])
+    new ExtractTextPlugin('style-[hash].css') 
   );
 } else {
   plugins.push(
@@ -175,11 +156,6 @@ if (isProduction) {
       {
         from: 'config/config.js',
         to: path.join(buildPath, 'config/'),
-        toType: 'dir'
-      },
-      {
-        from: jsResourcePath,
-        to: path.join(buildPath, 'resources/js'),
         toType: 'dir'
       }
     ])

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import getLoginAsync from "actions/login";
+import { getLoginAsync } from "actions/login";
 
 @connect(state => ({
   login: state.login.get('login'),
@@ -27,6 +27,7 @@ export default class AboutLifemiles extends Component {
 
   render() {
     const { login } = this.props;
+    debugger;
     return <div>HOLAAAA</div>;
   }
 }
