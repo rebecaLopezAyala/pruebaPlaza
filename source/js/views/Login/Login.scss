@@ -65,8 +65,15 @@
         box-sizing: border-box;
     }
 
-    button {
-        width: 100%;
+    a {
+        color: blue;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 10px;
+    }
+
+    button {    
+        width: 48%;
         background-color: #0D2745;
         color: white;
         padding: 14px 20px;
@@ -74,5 +81,44 @@
         border: none;
         border-radius: 4px;
         cursor: pointer;
+
+        @include xs-only {
+            width: 100%;
+        }
     }
   }
+
+  .wrapperDiv {
+    text-align: center;
+  }
+
+  .createAccountButton {
+      background-color: #0B3B63;
+  }
+
+  .buttonDiv {
+    flex-direction: column;
+    margin: 1rem;
+
+    @include sm {
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+    }
+  }
+
+  .checkbox {
+      margin: 1rem
+  }
+
+  .passwordInput {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    top: 18px;
+    right: 18px;
+  }
+

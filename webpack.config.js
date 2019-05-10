@@ -14,12 +14,15 @@ const isProduction = nodeEnv === 'production';
 
 const jsSourcePath = path.join(__dirname, './source/js');
 const buildPath = path.join(__dirname, './dist');
-const fontsPath = path.join(__dirname, './public/fonts/');
 const imgPath = path.join(__dirname, './public/images/');
+const fontsPath = path.join(__dirname, './public/fonts/');
 const sourcePath = path.join(__dirname, './source');
 const stylesPath = path.join(__dirname, './source/scss');
+const iconPath = path.join(__dirname, './source/js/icons');
+const jsResourcePath = path.join(__dirname, './resources/js')
 
 //const configFile = require('./config/config.js');
+const configFile = path.join(__dirname, './source/js/config/config.js')
 
 const COMMON_STYLE_LOADERS = isProduction ?
   ['sass-loader?sourceMap', 'postcss-loader'] : ['sass-loader?sourceMap', 'postcss-loader'];
@@ -54,8 +57,8 @@ const plugins = [
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: JSON.stringify(nodeEnv),
-    }/*,
-    endpoints: JSON.stringify(configFile.endpoints),
+    },
+    endpoints: JSON.stringify(configFile.endpoints)/*
     envHost: JSON.stringify(configFile.envHost),
     if1Pw3: JSON.stringify(configFile.if1Pw3),
     GMAPS_KEY: JSON.stringify(configFile.GMAPS_KEY)
@@ -95,6 +98,11 @@ const rules = [
     test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
     include: fontsPath,
     use: 'url-loader?limit=20480&name=public/fonts/[name]-[hash].[ext]',
+  },
+  {
+    test: /\.(svg|png)$/,
+    include: iconPath,
+    use: 'url-loader?limit=20480&name=assets/[name]-[hash].[ext]',
   },
   {
     test: /\.(png|gif|jpg|svg)$/,
@@ -151,7 +159,7 @@ if (isProduction) {
       },
       sourceMap: false,
     }),
-    new ExtractTextPlugin('style-[hash].css') 
+    new ExtractTextPlugin('style-[hash].css')
   );
 } else {
   plugins.push(
@@ -217,10 +225,10 @@ const config = {
         green: '\u001b[32m',
       },
     },
-  }/*,
+  },
   externals: {
     endpoints: 'endpoints'
-  }*/
+  }
 };
 
 module.exports = config;

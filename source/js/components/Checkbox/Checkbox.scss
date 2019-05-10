@@ -1,0 +1,51 @@
+@import "../../../scss/module-base";
+
+.wrapper {
+  display: flex;
+
+  a {
+    color: $blue;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  input[type='checkbox'] {
+    display: none;
+  }
+
+  input[type='checkbox'] + label {
+    background-color: white;
+    border: rem(1) solid $gray-1;
+    cursor: pointer;
+    width: rem(14);
+    height: rem(14);
+    margin-right: rem(12);
+    border-radius: rem(2);
+    display: block;
+  }
+
+  input[type='checkbox']:checked + label {
+    border: none;
+    background-color: $blue;
+    background-image: url('../../icons/check.png');
+    background-size: 1.4rem 1.4rem;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
+.input {
+  cursor: pointer;
+  align-self: baseline;
+}
+
+.label {
+  cursor: pointer;
+  font-size: rem(12);
+  font-family: 'RealTextPro-Semilight';
+  font-feature-settings: 'lnum' 1;
+  font-weight: 300;
+  line-height: rem(16);
+  color: $gray-2;
+  flex-shrink: 46;
+}

@@ -1,0 +1,31 @@
+@import '../../../scss/module-base.scss';
+.loaderWrapper {
+    position: absolute;
+    padding-left: 40%;
+    height: 100%;
+    padding-top: 10%;
+    background-color: $gray-3;
+
+    @include xs-only {
+        padding-top: 20%;
+        left: 0;
+    }
+}
+
+
+.bankLogo {
+    width: 30%;
+    @include xs-only {
+        width: 100%;
+    }
+}
+
+.loadergif {
+    width: 15%;
+    margin-left: 5.5rem;
+
+    @include xs-only {
+        margin-left: 8.5rem;
+        width: 100%;
+    }
+}
