@@ -1,36 +1,36 @@
 import { Map } from 'immutable';
 
 import {
-  GET_ABOUT_LIFEMILES_ACTION_START,
-  GET_ABOUT_LIFEMILES_ACTION_ERROR,
-  GET_ABOUT_LIFEMILES_ACTION_SUCCESS,
-} from 'actions/about';
+  GET_LOGIN_ACTION_START,
+  GET_LOGIN_ACTION_ERROR,
+  GET_LOGIN_ACTION_SUCCESS,
+} from 'actions/login';
 
 const initialState = Map({
-  about: {},
+  login: {},
 });
 
 const actionsMap = {
-  [GET_ABOUT_LIFEMILES_ACTION_START]: (state) => {
+  [GET_LOGIN_ACTION_START]: (state) => {
     return state.merge({
-      about:  {
+      login:  {
         asyncLoading: true,
         asyncError: null,  
       }
     });
   },
-  [GET_ABOUT_LIFEMILES_ACTION_ERROR]: (state, action) => {
+  [GET_LOGIN_ACTION_ERROR]: (state, action) => {
     return state.merge(Map({
-      about:  {
+      login:  {
         asyncLoading: false,
         asyncError: action.error,    
       }
     }));
   },
-  [GET_ABOUT_LIFEMILES_ACTION_SUCCESS]: (state, action) => {
+  [GET_LOGIN_ACTION_SUCCESS]: (state, action) => {
     return state.merge(Map({
       asyncLoading: false,
-      about: action.data,
+      login: action.data,
     }));
   },
 };
