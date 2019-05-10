@@ -15,6 +15,7 @@ const isProduction = nodeEnv === 'production';
 const jsSourcePath = path.join(__dirname, './source/js');
 const buildPath = path.join(__dirname, './dist');
 const fontsPath = path.join(__dirname, './public/fonts/');
+const imgPath = path.join(__dirname, './public/images/');
 const sourcePath = path.join(__dirname, './source');
 const stylesPath = path.join(__dirname, './source/scss');
 
@@ -96,6 +97,11 @@ const rules = [
     use: 'url-loader?limit=20480&name=public/fonts/[name]-[hash].[ext]',
   },
   {
+    test: /\.(png|gif|jpg|svg)$/,
+    include: imgPath,
+    use: 'url-loader?limit=20480&name=public/images/[name]-[hash].[ext]',
+  },
+  {
     test: /\.scss$/,
     /*include: [
         path.join(__dirname, '/source/scss/')
@@ -163,7 +169,7 @@ if (isProduction) {
 }
 
 const config = {
-  devtool: isProduction ? false : 'hidden-source-maps ',
+  devtool: isProduction ? false : 'eval-source-map',
   context: jsSourcePath,
   entry: {
     js: './index.js',

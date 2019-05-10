@@ -1,4 +1,18 @@
 @font-face {
+	font-family: 'champagne';
+	src: url('../../public/fonts/champagne_limousines/bold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'champagneNormal';
+	src: url('../../public/fonts/champagne_limousines/champagneNormal.ttf') format('truetype');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
 	font-family: 'RealHeadPro';
 	src: url('../../public/fonts/RealHeadPro/RealHeadPro.eot');
 	src: url('../../public/fonts/RealHeadPro/RealHeadPro.eot?#iefix') format('embedded-opentype'),

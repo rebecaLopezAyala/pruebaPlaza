@@ -1,17 +1,17 @@
 {
-  "name": "lifemiles-web-app",
-  "repository": "workco/lifemiles-web-app",
+  "name": "bank-web-app",
+  "repository": "examApp/bank-web-app",
   "version": "1.0.0",
   "private": false,
   "license": "MIT",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dashboard -t 'Lifemiles' -- webpack-dev-server --colors --no-info --config webpack.config.js",
+    "start": "webpack-dashboard -t 'Bank' -- webpack-dev-server --colors --no-info --config webpack.config.js",
     "build": "rm -rf ./build && NODE_ENV=\"production\" webpack --config webpack.config.js",
     "lint-break-on-errors": "eslint ./source/js ./webpack.config.js -f table --ext .js --ext .jsx",
     "lint": "eslint ./source/js ./webpack.config.js -f table --ext .js --ext .jsx || true",
-    "preview": "rm -rf ./build && NODE_ENV=\"production\" webpack-dashboard -t 'Preview Mode - Lifemiles' -- webpack-dev-server",
+    "preview": "rm -rf ./build && NODE_ENV=\"production\" webpack-dashboard -t 'Preview Mode - Bank' -- webpack-dev-server",
     "hook-add": "prepush install",
     "hook-remove": "prepush remove"
   },

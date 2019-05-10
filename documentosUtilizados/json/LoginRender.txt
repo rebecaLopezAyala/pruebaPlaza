@@ -1,0 +1,22 @@
+{
+  	"title":"Bank Application Login",
+	"subtitle": "¡Gracias por su confianza en nosotros!",
+	"bankLogo": "https://previews.123rf.com/images/asmati/asmati1706/asmati170606405/80933528-billete-de-banco-signo-de-d%C3%B3lar-vector-icono-blanco-con-suave-sombra-sobre-fondo-transparente-.jpg",
+	"label": [{
+		"type": "login",
+		"id": "userLabel",
+		"value": "Usuario"
+	}, {
+		"type": "login",
+		"id": "passwordLabel",
+		"value": "Contraseña"
+	},{
+		"type": "login",
+		"id": "buttonLabel",
+		"value": "Ingresar"
+	}],
+	"errorMessages": {
+		"invalidCredentials": "Credenciales inválidas",
+		"invalidPassword": "Usuario inactivo, favor contactar con soporte"
+	}
+}

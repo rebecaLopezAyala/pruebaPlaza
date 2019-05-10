@@ -1,7 +1,7 @@
 
 {
   "description": {
-    "project": "lifemiles-web-app",
+    "project": "bank-web-app",
     "type": "smart"
   },
   "build": {
@@ -33,6 +33,6 @@
   },
   "reporter": {
     "type": "slack",
-    "channel": "lifemiles-dev"
+    "channel": "bank-dev"
   }
 }
