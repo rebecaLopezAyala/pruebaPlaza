@@ -8,6 +8,11 @@ const LoginTransformer = {
         return loginValidator.validateLoginResponse(response) ?
         response : null;
     },
+    transformSignInResponse: (data) => {
+        const response = data;
+        return loginValidator.validateSignInResponse(response) ?
+        response : null;
+    },
 };
 
 export default LoginTransformer;

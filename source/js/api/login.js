@@ -10,6 +10,17 @@ function getLoginAsync() {
     });
 }
 
+
+function signInAsync(request) {
+  const url = `http://private-f9edf2-rebeca1.apiary-mock.com/signIn`;
+
+  return fetch(url, request)
+    .then((response) => {
+      return response;
+    });
+}
+
 export default {
   getLoginAsync,
+  signInAsync
 };

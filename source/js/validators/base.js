@@ -27,7 +27,7 @@ class BaseValidator {
             }
           }
         } else if (!schema[key].optional) {
-          //throw new Error(`Schema defined field: "${ key }" not found.`);
+          throw new Error(`Schema defined field: "${ key }" not found.`);
           isValid = false;
         }
       });

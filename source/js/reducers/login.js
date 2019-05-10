@@ -4,10 +4,14 @@ import {
   GET_LOGIN_ACTION_START,
   GET_LOGIN_ACTION_ERROR,
   GET_LOGIN_ACTION_SUCCESS,
+  SIGN_IN_ACTION_START,
+  SIGN_IN_ACTION_ERROR,
+  SIGN_IN_ACTION_SUCCESS,
 } from 'actions/login';
 
 const initialState = Map({
   login: {},
+  signIn:{}
 });
 
 const actionsMap = {
@@ -31,6 +35,30 @@ const actionsMap = {
     return state.merge(Map({
       asyncLoading: false,
       login: action.data,
+    }));
+  },
+  
+  [SIGN_IN_ACTION_START]: (state) => {
+    return state.merge({
+      signIn:  {
+        asyncLoading: true,
+        asyncError: null,  
+      }
+    });
+  },
+  [SIGN_IN_ACTION_ERROR]: (state, action) => {
+    return state.merge(Map({
+      signIn:  {
+        asyncLoading: false,
+        asyncError: action.error,    
+      }
+    }));
+  },
+  [SIGN_IN_ACTION_SUCCESS]: (state, action) => {
+    debugger;
+    return state.merge(Map({
+      asyncLoading: false,
+      signIn: action.data,
     }));
   },
 };

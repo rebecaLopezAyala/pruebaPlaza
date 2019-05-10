@@ -86,6 +86,10 @@
             width: 100%;
         }
     }
+
+    button:hover {
+        background-color: $blue; /* Green */
+    }
   }
 
   .wrapperDiv {
@@ -96,6 +100,11 @@
       background-color: #0B3B63;
   }
 
+  .errorLabel {
+    display: flex;
+    color: red;
+   }
+
   .buttonDiv {
     flex-direction: column;
     margin: 1rem;
@@ -105,6 +114,14 @@
         display: flex;
         justify-content: space-between;
     }
+  }
+
+  .forgotPassButton {
+    background-color: $light-blue !important;
+  }
+
+  .forgotPassButton:hover {
+    background-color: $blue !important;
   }
 
   .checkbox {
@@ -120,5 +137,10 @@
     width: 2rem;
     top: 18px;
     right: 18px;
+  }
+
+  .buttonDisable {
+      background-color: $gray-1 !important;
+      cursor: not-allowed;
   }
 
