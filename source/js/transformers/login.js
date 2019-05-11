@@ -13,6 +13,11 @@ const LoginTransformer = {
         return loginValidator.validateSignInResponse(response) ?
         response : null;
     },
+    transformAllProductsResponse: (data) => {
+        const response = data;
+        return loginValidator.validateAllProductsResponse(response) ?
+        response : null;
+    },
 };
 
 export default LoginTransformer;

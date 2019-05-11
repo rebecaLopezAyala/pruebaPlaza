@@ -1,0 +1,46 @@
+const AllProductsModel = {
+    accounts:{
+        type:'object',
+        isArray:true,
+        optional:false,
+        item:{
+            type:'object',
+            optional:false,
+            properties:{
+                categoryTitle:{
+                    type:'string',
+                    optional:false,
+                },
+                IDCategory:{
+                    type:'string',
+                    optional:false,
+                },
+                allProducts:{
+                    type:'object',
+                    isArray:true,
+                    optional:false,
+                    item:{
+                        type:'object',
+                        optional:false,
+                        properties:{
+                            id:{
+                                type:'string',
+                                optional:false,
+                            },
+                            desc:{
+                                type:'string',
+                                optional:true,
+                            },
+                            title:{
+                                type:'string',
+                                optional:true,
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    },
+}
+
+export default AllProductsModel;

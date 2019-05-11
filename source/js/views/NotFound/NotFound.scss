@@ -3,11 +3,18 @@
     padding-left: 40%;
     height: 100vh;
     padding-top: 10%;
-    background-color: $gray-3;
+    background-color: #F0EFF0;
 
     @include xs-only {
         padding-top: 20%;
         left: 0;
+        padding-left: 10%;
+    }
+
+    p {
+        color: $navy-blue;
+        font-family: 'champagne';
+        font-size: 36px;
     }
 }
 
@@ -20,11 +27,13 @@
 }
 
 .loadergif {
-    width: 15%;
-    margin-left: 5.5rem;
+    width: 100%;
+    margin-top: 6rem;
+    margin-left: -10rem;
 
     @include xs-only {
-        margin-left: 8.5rem;
         width: 100%;
+        margin-left: 0rem;
     }
 }
+

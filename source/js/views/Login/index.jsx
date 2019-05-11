@@ -13,6 +13,9 @@ import Loader from 'components/Loader/Loader';
 import FormValidator from '../../validators/form';
 import moment from 'moment';
 import { encryptPassword } from "common/util";
+import CookiesConfiguration from 'functions/CookiesConfiguration';
+import { browserHistory } from 'react-router';
+import { routeCodes } from 'common/routeConfig';
 
 @connect(state => ({
   login: state.login.get('login'),
@@ -58,7 +61,8 @@ export default class Login extends Component {
         let errorMessage = '';
         switch(this.props.signIn.status){
           case 200:
-            console.log('redirect');
+            CookiesConfiguration.setCookie('clientInfo', this.props.signIn)
+            browserHistory.push(routeCodes.PRODUCTS)
           break;
           case 401:
             errorMessage = login && login.errorMessages && login.errorMessages.invalidCredentials;

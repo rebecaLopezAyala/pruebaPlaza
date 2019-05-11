@@ -1,0 +1,45 @@
+{
+	"accounts": [{
+		"categoryTitle": "Prestamos",
+		"IDCategory": "LOAN",
+		"allProducts": [{
+			"id": "HIP",
+			"desc": "Préstamo Hipotecario Residencial Flores",
+			"title": "Crédito Hipotecario - $50,000"
+		}, {
+			"id": "PER",
+			"desc": "Préstamo personal XV años",
+			"title": "Crédito personal - $5,000"
+		}]
+	}, {
+		"categoryTitle": "Tarjetas de Crédito",
+		"IDCategory": "CREDITCARD",
+		"allProducts": [{
+			"id": "CUSVIPL",
+			"title": "Tarjeta de crédito Cuscatlán Visa Platinum"
+		}]
+	}, {
+		"categoryTitle": "Tarjetas de Débito",
+		"IDCategory": "PERSONAL",
+		"allProducts": [{
+			"id": "CUSMULTI",
+			"title": "Tarjeta de débito Cuscatlán Multipremios"
+		}]
+	}],
+	"title": "Mis cuentas"
+}
+
+
+/*
+Prestamos ID
+    HIP-> Hipotecario
+    PER-> personal
+    EMP-> Empresarial
+
+Tarjetas de crédito
+    CUSVIPL -> Cuscatlán VISA Platinun
+    CUSVIUN -> Cuscatlán VISA Uno
+
+personal
+    CUSMULTI -> Cuscatlán Multipremios
+*/

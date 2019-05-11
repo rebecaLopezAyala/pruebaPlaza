@@ -1,5 +1,8 @@
 export const publicPath = '/';
 
 export const routeCodes = {
-  LOGIN: `${ publicPath }`,
+  LANDING: `${ publicPath }`,
+  LOGIN: `${ publicPath }login`,
+  TRANSFER: `${ publicPath }transfer`,
+  PRODUCTS: `${ publicPath }products`,
 };

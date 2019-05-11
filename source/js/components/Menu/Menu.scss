@@ -1,0 +1,71 @@
+@import '../../../scss/module-base.scss';
+
+.wrapper {
+    background-color: $navy-blue;
+    width: 100%;
+    font-family: 'champagne';
+    font-size: 16px;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    li {
+        float: left;
+    }
+
+    li:last-child {
+        border-right: none;
+        float: right;
+        margin-right: 6rem;
+    }
+  
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        background-color: $navy-blue;
+        border: none;
+    }
+  
+    li a:hover:not(.active){
+        background-color: $light-blue;
+    }
+  
+    .active {
+        background-color:$blue;
+    }
+}
+
+
+.subMenu {
+    border-top: 1px solid $gray-1;
+    background-color: $light-blue;
+
+    li  {
+        float: left;
+    }
+
+    li:last-child  {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center; 
+        text-decoration: none;
+        padding-top:0px 16px !important;
+        background-color: $light-blue;
+        border: none;
+    }
+  
+    li a:hover:not(.active){
+        background-color: $blue;
+    }
+}

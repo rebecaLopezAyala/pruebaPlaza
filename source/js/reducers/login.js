@@ -7,11 +7,15 @@ import {
   SIGN_IN_ACTION_START,
   SIGN_IN_ACTION_ERROR,
   SIGN_IN_ACTION_SUCCESS,
+  ALL_PRODUCTS_ACTION_START,
+  ALL_PRODUCTS_ACTION_ERROR,
+  ALL_PRODUCTS_ACTION_SUCCESS,
 } from 'actions/login';
 
 const initialState = Map({
   login: {},
-  signIn:{}
+  signIn:{},
+  allProducts:{}
 });
 
 const actionsMap = {
@@ -55,10 +59,32 @@ const actionsMap = {
     }));
   },
   [SIGN_IN_ACTION_SUCCESS]: (state, action) => {
-    debugger;
     return state.merge(Map({
       asyncLoading: false,
       signIn: action.data,
+    }));
+  },
+  
+  [ALL_PRODUCTS_ACTION_START]: (state) => {
+    return state.merge({
+      allProducts:  {
+        asyncLoading: true,
+        asyncError: null,  
+      }
+    });
+  },
+  [ALL_PRODUCTS_ACTION_ERROR]: (state, action) => {
+    return state.merge(Map({
+      allProducts:  {
+        asyncLoading: false,
+        asyncError: action.error,    
+      }
+    }));
+  },
+  [ALL_PRODUCTS_ACTION_SUCCESS]: (state, action) => {
+    return state.merge(Map({
+      asyncLoading: false,
+      allProducts: action.data,
     }));
   },
 };
