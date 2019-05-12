@@ -26,7 +26,6 @@ export default class App extends Component {
 
     this.state = {
     };
-
   }
 
   componentWillMount(){
@@ -38,14 +37,16 @@ export default class App extends Component {
     }else {
       browserHistory.push(routeCodes.LANDING)
     }
-}
+  }
+
+
 
   render() {
     const { transfer } = this.props;
     const ownCard = window.location.pathname.indexOf('ownCard') > 0;
     const thirdCard = window.location.pathname.indexOf('thirdCard') > 0;
 
-    return !transfer.asyncLoading ? (
+    return transfer && transfer.title ? (
       <div className={ styles.wrapper }>
         <Menu/>
         <div className = { styles.wrapperForm }>
