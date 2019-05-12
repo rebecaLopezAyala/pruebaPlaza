@@ -16,6 +16,7 @@ import { encryptPassword } from "common/util";
 import CookiesConfiguration from 'functions/CookiesConfiguration';
 import { browserHistory } from 'react-router';
 import { routeCodes } from 'common/routeConfig';
+import WebStorage from 'functions/WebStorage';
 
 @connect(state => ({
   login: state.login.get('login'),
@@ -39,6 +40,7 @@ export default class Login extends Component {
         newPassword:''
       },
       errorMessage:'',
+      rememberPass:false
     }
     
     this.formValidator = new FormValidator();
@@ -47,6 +49,7 @@ export default class Login extends Component {
     this.onKeyPress = this.onKeyPress.bind(this);
     this.changeImage = this.changeImage.bind(this);
     this.login = this.login.bind(this);
+    this.changeHandler = this.changeHandler.bind(this);
   }
   
   componentWillMount(){
@@ -62,7 +65,7 @@ export default class Login extends Component {
         switch(this.props.signIn.status){
           case 200:
             CookiesConfiguration.setCookie('clientInfo', this.props.signIn)
-            browserHistory.push(routeCodes.PRODUCTS)
+            browserHistory.push(routeCodes.PRODUCTS);
           break;
           case 401:
             errorMessage = login && login.errorMessages && login.errorMessages.invalidCredentials;
@@ -75,6 +78,12 @@ export default class Login extends Component {
         this.setState({errorMessage});
       }
     }
+  }
+
+  changeHandler(e){
+    this.setState({
+      rememberPass: e.target.checked
+    })
   }
 
   login(){
@@ -207,6 +216,7 @@ export default class Login extends Component {
                       wrapperClass= { styles.checkbox }
                       labelClass={ styles.label }
                       label={ rememberMe.value }
+                      changeHandler = { (event)=> this.changeHandler(event)}
                     />}
                   <div className = { styles.wrapperDiv }>
                     <div className = { styles.buttonDiv }>
