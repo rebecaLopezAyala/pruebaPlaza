@@ -1,0 +1,12 @@
+ALTER TABLE public.estado_cuenta ADD CONSTRAINT estado_cuenta_fk FOREIGN KEY (usuario) REFERENCES public.usuario(usuario);
+ALTER TABLE public.estado_cuenta ADD CONSTRAINT estado_cuenta_fk_1 FOREIGN KEY (cod_prod_bancario) REFERENCES public.producto_bancario(cod_prod_bancario);
+ALTER TABLE public.usuario ADD CONSTRAINT usuario_fk FOREIGN KEY (idcliente) REFERENCES public.cliente(idcliente);
+ALTER TABLE public.cuenta_bancaria ADD CONSTRAINT cuenta_bancaria_fk FOREIGN KEY (idcliente) REFERENCES public.cliente(idcliente);
+ALTER TABLE public.cuenta_bancaria ADD CONSTRAINT cuenta_bancaria_fk_1 FOREIGN KEY (id_tipo_cuenta) REFERENCES public.tipo_cuenta_bancaria(id_tipo_cuenta);
+ALTER TABLE public.pago_tarjeta ADD CONSTRAINT pago_tarjeta_fk FOREIGN KEY (num_cuenta) REFERENCES cuenta_bancaria(num_cuenta);
+ALTER TABLE public.pago_prestamo ADD CONSTRAINT pago_prestamo_fk FOREIGN KEY (num_cuenta) REFERENCES public.cuenta_bancaria(num_cuenta);
+ALTER TABLE public.transferencia ADD CONSTRAINT transferencia_fk FOREIGN KEY (num_cuenta) REFERENCES public.cuenta_bancaria(num_cuenta);
+ALTER TABLE public.transferencia ADD CONSTRAINT transferencia_fk_1 FOREIGN KEY (estado_transferencia) REFERENCES public.estado_transferencia(estado_transferencia);
+ALTER TABLE public.producto_bancario ADD CONSTRAINT producto_bancario_fk FOREIGN KEY (num_cuenta) REFERENCES public.cuenta_bancaria(num_cuenta);
+ALTER TABLE public.producto_bancario ADD CONSTRAINT producto_bancario_fk_1 FOREIGN KEY (cod_tipo_prod) REFERENCES public.tipo_producto_bancario(cod_tipo_prod);
+ALTER TABLE public.producto_bancario ADD CONSTRAINT producto_bancario_fk_2 FOREIGN KEY (idcliente) REFERENCES public.cliente(idcliente);
