@@ -38,7 +38,7 @@ export default class App extends Component {
         }
         dispatch(allProductsAsync(allProdRequest));
     }else {
-      browserHistory.push(routeCodes.LOGIN)
+      browserHistory.push(routeCodes.LANDING)
     }
   }
 

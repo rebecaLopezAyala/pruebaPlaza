@@ -1,19 +1,20 @@
 
 import CookiesConfiguration from 'functions/CookiesConfiguration';
+import { routeCodes } from 'common/routeConfig';
 
 export const menuItems = [
     {
         item: {
-            title: 'Productos',  link: '/products',
+            title: 'Productos',  link: routeCodes.PRODUCTS,
         }
     },
     { 
         item: {
-            title: 'Transferencia',  link: '/transfer',
+            title: 'Transferencia',  link: routeCodes.TRANSFER,
         },
         subMenuItems:[
-            { title: 'Transferencia entre cuentas propias',  link: '/transfer'},
-            { title: 'Transferencia a terceros',  link: '/transferThird'}
+            { title: 'Transferencia entre cuentas propias',  link: routeCodes.TRANSFER_OWN},
+            { title: 'Transferencia a terceros',  link: routeCodes.TRANSFER_THIRD}
         ]
     },{ 
         item: {

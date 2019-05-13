@@ -1,3 +1,1 @@
-{
-    
-}
+{"title": "Transferencia cuentas propias","titleThird": "Transferencia cuentas de terceros","labels": [{"type": "transfer","value": "Cuenta origen","id": "originAccount"}, {"type": "transfer","value": "Cuenta destino","id": "destinationAccount"}, {"type": "transfer","value": "Monto","id": "amount"}],"typeOfTransaction": [{"id": "BEN","value": "beneficiario"}, {"id": "OTR","value": "Otro"}],"aditionalDetails": [{"title": "Tipo de Operación","id": "TIP","isThird": true,"isPersonal": false}, {"title": "Concepto","id": "CON","isThird": true,"isPersonal": true}, {"title": "Correo","id": "EMA","isThird": true,"isPersonal": true}],"terms": "He leído y acepto los términos y condiciones de la transacción","button": "Transferir","link": "Limpiar"}

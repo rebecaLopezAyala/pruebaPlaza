@@ -1,0 +1,67 @@
+@import '../../../../scss/module-base.scss';
+
+.title {
+    font-family: 'champagne';
+    text-decoration: underline;
+    text-align: center;
+    font-size: 4rem;
+    padding-top: 3rem;
+}
+
+  .formStyle {
+    margin-top: 3rem;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    font-family: 'champagne';
+    font-size: 12px;
+    margin-left: 25%;
+    margin-left: 20%;
+    margin-bottom: 3rem;
+
+    @include sm {
+        width: 60%;
+    }
+
+    @include xs-only {
+        
+        margin: 4rem 0 0 0;
+    }
+    
+    input, select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    a {
+        color: blue;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 14px;
+        margin-left: 2rem;
+    }
+
+    button {    
+        width: 48%;
+        background-color: #0D2745;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        @include xs-only {
+            width: 100%;
+        }
+    }
+
+    button:hover {
+        background-color: $blue; /* Green */
+    }
+  }

@@ -19,13 +19,19 @@ export default class Menu extends Component {
   }
 
   
-  checkIfActive(mainRoute) {
+  checkIfActive(mainRoute, subMenu) {
     let isActive = false;
     let rootUrl = '';
 
-    if(window.location.pathname.split('/')[1]){
-      rootUrl = location.pathname.split('/')[1];
-    }
+    if(subMenu){
+      if(window.location.pathname.split('/')[2]){
+        rootUrl = location.pathname.split('/')[2];
+      }
+    }else
+        if(window.location.pathname.split('/')[1]){
+          rootUrl = location.pathname.split('/')[1];
+        }
+
 
     if (mainRoute.indexOf(rootUrl) >= 0 && rootUrl !== '') {
       isActive = true;
@@ -61,9 +67,14 @@ export default class Menu extends Component {
 
   renderSubItems(subItems){
     return <ul> 
-            {subItems.map(item=> {
-              return (<li>
-                          <a href={ item.link }>{ item.title }</a>
+            {subItems.map((item, key)=> {
+              const isActive = this.checkIfActive(item.link, true);
+              const active = classNames(
+                {[styles.active]: isActive}
+              );
+              
+              return (<li id={key}>
+                          <a className = { active } href={ item.link }>{ item.title }</a>
                       </li>)})}
            </ul>
   }
